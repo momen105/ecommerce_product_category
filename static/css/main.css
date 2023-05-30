@@ -17,3 +17,9 @@ body {
 .price-btn {
     background-color: #708dff;
 }
+
+.card-body {
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}

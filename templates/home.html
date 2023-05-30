@@ -21,11 +21,11 @@
             <div class="row align-items-start flex-nowrap gap-3">
                 <div class="p-3 col-sm-4 side-bar">
                     <p>Price</p>
-                    <div class="d-flex column-gap-2">
-                        <input type="number" class="w-100">
+                    <div class="d-flex column-gap-2" id="filterByPrice">
+                        <input type="number" class="w-100" id="minPriceInput">
                         <label for="">TO</label>
-                        <input type="number" class="w-100">
-                        <button type="button" class="btn price-btn ">Go</button>
+                        <input type=" number" class="w-100" id="maxPriceInput">
+                        <button type="button" class="btn price-btn" onclick="productFilter()">Go</button>
                     </div>
                     <hr>
                     <p>Category</p>
@@ -48,16 +48,17 @@
                 </div>
 
                 <div class="col-sm-8 product-section">
-                    <div class="row p-1 bg-white">
-                        <div class="col-sm-10">
-                            <p>Ear phone name</p>
+                    <div class="row pt-2 bg-white">
+                        <div class="col-sm-9">
+                            <p>All Products</p>
                         </div>
-                        <div class="col-sm-2">
-                            <select class="form-select" aria-label="Default select example">
+                        <div class="col-sm-3 " id="sort">
+
+                            <select class="form-select" aria-label="Default select example"
+                                onclick="getSelectedValue()">
                                 <option selected disabled hidden>Sort By:</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">Price: Low to High</option>
+                                <option value="2">Price: High to Low</option>
                             </select>
                         </div>
                     </div>

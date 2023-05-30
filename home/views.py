@@ -7,6 +7,7 @@ from .query import (
     filter_by_category,
     filter_by_seller,
     filter_by_Warranty,
+    filter_by_price,
 )
 
 
@@ -52,11 +53,17 @@ class ProductView(generics.ListCreateAPIView, generics.RetrieveUpdateAPIView):
         brand = params.get("brand")
         warranty = params.get("warranty")
         seller = params.get("seller")
+        min_price = params.get("minp")
+        max_price = params.get("maxp")
+        print(min_price, max_price)
         products = self.queryset.filter(
             filter_by_category(category),
             filter_by_brand(brand),
             filter_by_Warranty(warranty),
             filter_by_seller(seller),
+            filter_by_price(min_price, max_price),
         ).order_by("-id")
+        print(products)
         serializers = self.serializer_class(products, many=True)
+
         return response.Response(serializers.data)
