@@ -55,7 +55,6 @@ class ProductView(generics.ListCreateAPIView, generics.RetrieveUpdateAPIView):
         seller = params.get("seller")
         min_price = params.get("minp")
         max_price = params.get("maxp")
-        print(min_price, max_price)
         products = self.queryset.filter(
             filter_by_category(category),
             filter_by_brand(brand),
