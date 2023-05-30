@@ -1,7 +1,7 @@
-const category_names = document.getElementById('category')
+const categoryNames = document.getElementById('category')
 const brands = document.getElementById('brand')
 const warranties = document.getElementById('warranty')
-const seller_name = document.getElementById('seller')
+const sellerName = document.getElementById('seller')
 const products = document.getElementById('product')
 const minPrice = document.getElementById('minPriceInput')
 const maxPrice = document.getElementById('maxPriceInput')
@@ -12,7 +12,7 @@ fetch('/category/')
     .then((category) => {
         const items = category.map((item, index) => {
 
-            category_names.innerHTML += `<div class="form-check" id="category">
+            categoryNames.innerHTML += `<div class="form-check" id="category">
             <input class="form-check-input" type="checkbox" value="${item.id}" onclick = "productFilter()" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
                 ${item.name}
@@ -53,7 +53,7 @@ fetch('/seller/')
     .then((response) => response.json())
     .then((seller) => {
         const items = seller.map((item, index) => {
-            seller_name.innerHTML += `<div class="form-check" id="seller">
+            sellerName.innerHTML += `<div class="form-check" id="seller">
             <input class="form-check-input" type="checkbox" value="${item.id}" onclick = "productFilter()" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
                 ${item.name}
@@ -67,9 +67,9 @@ function productFilter() {
     // Collect the selected filter values
     const selectedFilters = {
         brand: brands.querySelectorAll('input[type="checkbox"]:checked'),
-        category: category_names.querySelectorAll('input[type="checkbox"]:checked'),
+        category: categoryNames.querySelectorAll('input[type="checkbox"]:checked'),
         warranty: warranties.querySelectorAll('input[type="checkbox"]:checked'),
-        seller: seller_name.querySelectorAll('input[type="checkbox"]:checked'),
+        seller: sellerName.querySelectorAll('input[type="checkbox"]:checked'),
 
     };
 
