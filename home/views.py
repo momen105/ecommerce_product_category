@@ -63,7 +63,6 @@ class ProductView(generics.ListCreateAPIView, generics.RetrieveUpdateAPIView):
             filter_by_seller(seller),
             filter_by_price(min_price, max_price),
         ).order_by("-id")
-        print(products)
         serializers = self.serializer_class(products, many=True)
 
         return response.Response(serializers.data)

@@ -148,6 +148,14 @@ fetch('/product/')
         getSelectedValue()
     });
 
+function getAllProducts() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
+    getSelectedValue()
+}
+
 function renderProducts(product) {
 
     products.innerHTML = ''
